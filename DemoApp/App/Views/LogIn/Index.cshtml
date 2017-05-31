@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LogIn</title>
+    <link href="~/Content/LogIn.css" rel="stylesheet" />
+</head>
+@*<body style="background-image: url('../img/DSC09291.JPG'); background-repeat: no-repeat; background-size: cover; ">*@
+<body>
+    <div class="container">
+
+        <div id="login-form">
+            @*<img src="~/img/adoption_icon.gif" style="width:160px;margin-left:20%" />*@
+            <h3>Login</h3>
+            <fieldset>
+                @using (Html.BeginForm("Index", "LogIn", FormMethod.Post, new { @id = "LogIn", enctype = "multipart/form-data" }))
+                {
+                    <input type="email" required value="Email" id="UserNAme" name="UserName" onblur="if(this.value=='')this.value='Email'" onfocus="if(this.value=='Email')this.value='' "> <!-- JS because of IE support; better: placeholder="Email" -->
+                    <input type="password" required value="Password" id="Password" name="Password" onblur="if(this.value=='')this.value='Password'" onfocus="if(this.value=='Password')this.value='' "> <!-- JS because of IE support; better: placeholder="Password" -->
+                    <input type="submit" value="Login">
+                    <footer class="clearfix"></footer>
+                }
+            </fieldset>
+        </div>
+    </div>
+
+</body>
+</html>

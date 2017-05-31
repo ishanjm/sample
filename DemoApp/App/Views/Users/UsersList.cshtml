@@ -1,0 +1,124 @@
+﻿<link href="~/css/custom-theme.css" rel="stylesheet" />
+<div class="row">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="btn-group mar-rgt">
+                <a href="@Url.Action("ManageUser", "Users", new { mode = "New" })" class="btn btn-primary btn-labeled fa fa-file-text-o">New</a>
+            </div>
+            <div class="grid-part">
+
+                <table id="tbl_Quiz" class="celloTable" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th style="width:12%;">Identifier</th>
+                            <th style="width:5%;">Name</th>
+                            <th style="width:5%;">Email</th>
+                            <th style="width:5%;">Type</th>
+                            <th style="width:5%;">Pre-Fix</th>
+                            <th style="width:1%;"></th>
+                        </tr>
+                        <tr>
+                            <th style="width:12%;">Identifier</th>
+                            <th style="width:5%;">Name</th>
+                            <th style="width:5%;">Email</th>
+                            <th style="width:5%;">Type</th>
+                            <th style="width:5%;">Pre-Fix</th>
+                            <th style="width:1%;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/js/jquery.dataTables-1-8-2.js"></script>
+    <script src="~/js/jquery.dataTables.columnFilter.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        var oTable = $("#tbl_Quiz").dataTable({
+            "bServerSide": true,
+            "sAjaxSource": "@Url.Content("~/Users/ListUsersJson")",
+            "bProcessing": true,
+            "oLanguage": {
+                "sInfoFiltered": "",
+                "sEmptyTable": "No matching records found"
+            },
+            "bPaginate": true,
+            "iDisplayLength": 10,
+            "sPaginationType": "full_numbers",
+            "bAutoWidth": false,
+            "aoColumns": [
+                    {
+                        "sName": "ID",
+                        "bSearchable": false,
+                        "bSortable": false,
+                        "bVisible": false,
+                        "sClass": "hideCol"
+                    },
+                    {
+                        "sName": "Name",
+                        "fnRender": function (oObj) {
+                            return '<a class="gridalink" href=\"@Url.Action("Profile", "Users")/' +
+                                oObj.aData[0] + '?mode=View\">' + oObj.aData[1] + '</a>';
+                        },
+                        "bSearchable": false,
+                        "bSortable": true
+                    },
+                    {
+                        "sName": "Email",
+                        "bSearchable": false,
+                        "bSortable": true
+                    },
+                    {
+                        "sName": "Type",
+                        "bSearchable": false,
+                        "bSortable": true
+                    },
+                     {
+                         "sName": "Status",
+                         "bSearchable": false,
+                         "bSortable": true
+                     },
+                    {
+                        "sName": "Actions",
+                        "bSearchable": false,
+                        "bSortable": false,
+                        "fnRender": function (oObj) {
+                            return '<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href=\"@Url.Action("ManageUser", "Users")/' + oObj.aData[0] + '?mode=Edit\" data-original-title="Edit" data-container="body"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;<a class="btn btn-xs btn-default add-tooltip" data-toggle="tooltip" href=\"@Url.Action("Profile", "Users")/' + oObj.aData[0] + '" data-original-title="Profile" data-container="body"><i class="fa fa-eye"></i></a>';
+                        }
+                    }
+
+            ]
+        })
+                       .columnFilter({
+                           sPlaceHolder: "head:after",
+                           aoColumns: [null,
+                                       { type: "text" },
+                                       { type: "text" },
+                                       { type: "text" },
+                                       { type: "text" },
+                                      null
+
+                           ]
+                       });
+
+        $(function () {
+            var myTable = $('#tbl_Quiz').dataTable();
+
+            $('.dataTables_filter input')
+                        .unbind('keypress keyup')
+                        .bind('keypress keyup', function (e) {
+                            if ($(this).val().length == 0 && e.keyCode != 13 && e.keyCode == 8)
+                                myTable.fnFilter($(this).val());
+                            else if ($(this).val().length < 3 && e.keyCode != 13)
+                                return;
+                            else
+                                myTable.fnFilter($(this).val());
+                        });
+        });
+    });
+
+    </script>
+}

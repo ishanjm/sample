@@ -1,0 +1,9 @@
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\bin\Debug\Service.dll
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\bin\Debug\Service.pdb
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\bin\Debug\DBAccess.dll
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\bin\Debug\Model.dll
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\bin\Debug\DBAccess.pdb
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\bin\Debug\Model.pdb
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\obj\Debug\Service.dll
+c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\Service\obj\Debug\Service.pdb
