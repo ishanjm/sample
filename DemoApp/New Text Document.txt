@@ -1,3 +1,34 @@
+function SaveSchool() {
+            var URL = "@Url.Content("~/Orphan/SaveSchool/")";
+            $.ajax({
+                url: URL,
+                type: "POST",
+                data: { 'OrphanID': $("#OrphanID").val(), 'SchoolName': $("#SchoolNamedata").val(), 'Class': $("#Classdata").val(), 'Date': $(".DatePick").val(), 'Admissinnum': $("#Admissinnum").val() },
+                async: false,
+                success: function (data) {
+                    $('#SchooltblDisplay tbody').prepend(data.HTML);
+                    $(".DeleteRecord").on('click', function () {
+                        var itemID = this.id.replace('btnStItem_', '');
+                        $("#pItemID").val(itemID);
+                        $("#itemQtyModal").modal('show');
+                    });
+                },
+                error: function (error) {
+
+                }
+            });
+        }
+public JsonResult SaveSchool(string OrphanID, string SchoolName, string Class, string Date, string Admissinnum)
+        {
+            string HTMLDate = string.Empty;
+            OrphanDAL OrDAL = new OrphanDAL();
+            string SchoolID = OrDAL.Addschool(OrphanID, SchoolName, Class, Date, Admissinnum);
+            HTMLDate = "<tr><td style='display:none'>" + SchoolID + "</td><td>" + SchoolName + "</td><td>" + Class + "</td><td>" + Date + "</td><td>" + Admissinnum + "</td><td><a onclick='EditSchool(this)' class='btn btn-xs btn-default add-tooltip' data-original-title='' title=''><i class='fa fa-pencil'></i></a><a id='btnStItem_" + SchoolID + "' class='btn btn-xs btn-danger DeleteRecord  add-tooltip' data-original-title='' title=''><i class='fa fa-times'></i></a></td></tr>";
+            return Json(new
+            {
+                HTML = HTMLDate
+            }, JsonRequestBehavior.AllowGet);
+        }
 TransactionScope transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted });
                 using (transaction)
                 {
@@ -78,6 +109,26 @@ AdditionlItems = $('#orphantbl  tr').slice(1).map(function () {
         var addionaljson = JSON.stringify(AdditionlItems);
         $("#ItemJson").val(addionaljson);
         $("#PaymentReg").submit();
+function SaveSchool() {
+            var URL = "@Url.Content("~/Orphan/SaveSchool/")";
+            $.ajax({
+                url: URL,
+                type: "POST",
+                data: { 'OrphanID': $("#OrphanID").val(), 'SchoolName': $("#SchoolNamedata").val(), 'Class': $("#Classdata").val(), 'Date': $(".DatePick").val(), 'Admissinnum': $("#Admissinnum").val() },
+                async: false,
+                success: function (data) {
+                    $('#SchooltblDisplay tbody').prepend(data.HTML);
+                    $(".DeleteRecord").on('click', function () {
+                        var itemID = this.id.replace('btnStItem_', '');
+                        $("#pItemID").val(itemID);
+                        $("#itemQtyModal").modal('show');
+                    });
+                },
+                error: function (error) {
+
+                }
+            });
+        }
 
 @using BaseModule.Models.SystemData
 @{
