@@ -1,3 +1,5 @@
+ Uri myuri = new Uri(System.Web.HttpContext.Current.Request.Url.AbsoluteUri);
+string DocpathQuery = "http://" + myuri.Authority + "/" + item.FilePath.Replace("\\", "/");
 function SaveSchool() {
             var URL = "@Url.Content("~/Orphan/SaveSchool/")";
             $.ajax({
