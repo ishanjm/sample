@@ -1,6 +1,7 @@
 TransactionScope transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted });
                 using (transaction)
                 {
+
                     applicantInfo.IsTrackingOn = true;
 
 
