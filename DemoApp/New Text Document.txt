@@ -1,3 +1,16 @@
+TransactionScope transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted });
+                using (transaction)
+                {
+                    applicantInfo.IsTrackingOn = true;
+
+
+                    IApplicantInfoDAL applicant = (IApplicantInfoDAL)DALImplementationFactory.GetDALImplementation(typeof(IApplicantInfoDAL));
+                    DataCreateRequest dataCreateRequest = new DataCreateRequest(applicantInfo);
+                    applicantInfo.Identifier = applicant.Create(dataCreateRequest);
+
+                    transaction.Complete();
+                }
+
  ViewData["Sponser"] = new SelectList(SponserDAL.SearchSponserList(" Status ='Active'"), "UserID", "DisplayName");
 
  @Html.DropDownList("User.UserGroup", UserType, new { @class = "form-control" })
