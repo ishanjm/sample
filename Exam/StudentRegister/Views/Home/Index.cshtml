@@ -1,0 +1,17 @@
+﻿@using Model;
+
+@{
+    List<Model.Member> MemberViewModel = Model;
+}
+
+<table>
+    <thead>
+        <tr><th>Name</th><th>Address</th><th>Dob</th></tr>
+        @{
+            foreach (Member MemberItem in MemberViewModel)
+            {
+                <tr><td>@MemberItem.Name</td><td>@MemberItem.Address</td><td>@MemberItem.Dob.ToShortDateString()</td></tr>
+            }
+        }
+    </thead>
+</table>

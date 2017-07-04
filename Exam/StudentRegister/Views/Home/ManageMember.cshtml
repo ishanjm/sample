@@ -1,0 +1,21 @@
+﻿@model Model.Member
+
+@using (Html.BeginForm("ManageMember", "Home", FormMethod.Post, new { @class = "MemberRegForm" }))
+{
+    <div class="form-group">
+        @Html.AntiForgeryToken()
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @type = "text", @id = "TxtName" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address)
+        @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @type = "text", @id = "TxtAddress" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Dob)
+        @Html.TextBoxFor(model => model.Dob, new { @class = "form-control DatePicker", @type = "text", @id = "Dob" })
+    </div>
+    <input id="btnSubmit" type="submit" class="be-popup-sign-button" value="Save">
+}
+
+
