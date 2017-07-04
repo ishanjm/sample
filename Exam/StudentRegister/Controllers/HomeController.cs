@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace StudentRegister.Controllers
 {
+
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -27,6 +28,10 @@ namespace StudentRegister.Controllers
             if (ModelState.IsValid)
             {
                 string ID = MemberServiceProxy.CreateMember(model);
+            }
+            else
+            {
+                return View();
             }
             return RedirectToAction("Index");
         }

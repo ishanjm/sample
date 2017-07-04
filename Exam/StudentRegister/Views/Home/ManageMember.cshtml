@@ -1,21 +1,35 @@
 ﻿@model Model.Member
+<div class="row">
+    <div class="col-md-4">
 
-@using (Html.BeginForm("ManageMember", "Home", FormMethod.Post, new { @class = "MemberRegForm" }))
-{
-    <div class="form-group">
-        @Html.AntiForgeryToken()
-        @Html.LabelFor(model => model.Name)
-        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @type = "text", @id = "TxtName" })
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Address)
-        @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @type = "text", @id = "TxtAddress" })
+    <div class="col-md-4">
+        @using (Html.BeginForm("ManageMember", "Home", FormMethod.Post, new { @class = "MemberRegForm" }))
+        {
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.AntiForgeryToken()
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @type = "text", @id = "TxtName" })
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address)
+                @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @type = "text", @id = "TxtAddress" })
+                @Html.ValidationMessageFor(model => model.Address)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Dob)
+                @Html.TextBoxFor(model => model.Dob, new { @class = "form-control DatePicker", @type = "text", @id = "Dob" })
+                @Html.ValidationMessageFor(model => model.Dob)
+            </div>
+            <input id="btnSubmit" type="submit" class="btn btn-primary" value="Save">
+        }
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Dob)
-        @Html.TextBoxFor(model => model.Dob, new { @class = "form-control DatePicker", @type = "text", @id = "Dob" })
+    <div class="col-md-4">
+
     </div>
-    <input id="btnSubmit" type="submit" class="be-popup-sign-button" value="Save">
-}
+</div>
+
 
 
