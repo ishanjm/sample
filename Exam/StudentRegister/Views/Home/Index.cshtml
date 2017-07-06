@@ -3,14 +3,21 @@
 @{
     List<Model.Member> MemberViewModel = Model;
 }
-<div class="col-md-2">
+<div class="row">
+    <div class="col-md-3">
 
-</div>
-<div class="col-md-6">
-    @Html.ActionLink("Add", "ManageMember", "Home",new { @class= "btn btn-primary pull-right" })
-    @Html.Partial("~/Views/Home/_DataGridPartial.cshtml", MemberViewModel);
-</div>
-<div class="col-md-2">
+    </div>
+    <div class="col-md-6">
+        <div class="panel">
+            <div class="panel-body">
+                @Html.ActionLink("Add", "ManageMember", "Home", new { @class = "btn btn-primary pull-right" })
+                @Html.Partial("~/Views/Home/_DataGridPartial.cshtml", MemberViewModel)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
 
+    </div>
 </div>
+
 

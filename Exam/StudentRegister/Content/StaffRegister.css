@@ -1,13 +1,27 @@
 ﻿footer {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            padding: 1rem;
-            background-color: #efefef;
-            text-align: center;
-        }
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+}
 
-.field-validation-error{
-    color:red;
+.field-validation-error {
+    color: red;
+}
+
+.PanelMargineTop {
+    margin-top: 100px;
+}
+
+.boxshadow {
+    -webkit-box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 70px 0px rgba(0,0,0,0.75);
+}
+.input-validation-error{
+    border-style: solid;
+    border-color: #ff0000 #0000ff;
 }
