@@ -1,7 +1,0 @@
-c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\DBAccess\obj\Debug\DBAccess.csprojResolveAssemblyReference.cache
-c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\DBAccess\bin\Debug\DBAccess.dll
-c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\DBAccess\bin\Debug\DBAccess.pdb
-c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\DBAccess\bin\Debug\Model.dll
-c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\DBAccess\bin\Debug\Model.pdb
-c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\DBAccess\obj\Debug\DBAccess.dll
-c:\users\ishan\documents\visual studio 2015\Projects\DemoApp\DBAccess\obj\Debug\DBAccess.pdb
